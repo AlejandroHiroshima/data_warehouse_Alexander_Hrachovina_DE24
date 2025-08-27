@@ -1,0 +1,18 @@
+SHOW WAREHOUSES;
+
+DROP WAREHOUSE demo_warehouse; -- för att ta bort
+
+CREATE WAREHOUSE demo_warehouse
+WITH
+WAREHOUSE_SIZE = "X-Small"
+AUTO_SUSPEND = 300 -- sekunder (5min)
+AUTO_RESUME = TRUE
+INITIALLY_SUSPENDED = TRUE
+COMMENT = 'demo warehouse created through a worksheet'; 
+
+ALTER WAREHOUSE COMPUTE_WH
+SET AUTO_SUSPEND = 60;
+
+ALTER WAREHOUSE DEMO_WAREHOUSE
+SET MAX_CLUSTER_COUNT = 3;
+
