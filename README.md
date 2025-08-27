@@ -1,0 +1,2 @@
+# data_warehouse_Alexander_Hrachovina_DE24
+Learning data warehouse lifecycle
