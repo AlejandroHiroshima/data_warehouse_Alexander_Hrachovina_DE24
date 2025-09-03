@@ -54,4 +54,6 @@ GRANT SELECT ON FUTURE TABLES IN DATABASE movies TO ROLE movies_reader;
 
 GRANT ROLE movies_reader TO USER ALEXH1985;
 
+grant role movies_dlt_role to user alexh1985;
+
 SHOW GRANTS TO ROLE movies_reader;
