@@ -33,3 +33,25 @@ GRANT INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA movies.staging TO ROLE movi
 GRANT INSERT, UPDATE, DELETE ON FUTURE TABLES IN SCHEMA movies.staging TO ROLE movies_dlt_role;
 
 SHOW GRANTS TO ROLE movies_dlt_role;
+
+-----
+
+USE ROLE useradmin;
+
+CREATE ROLE IF NOT EXISTS movies_reader;
+
+USE ROLE securityadmin;
+
+GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE movies_reader;
+
+GRANT USAGE ON DATABASE movies TO ROLE movies_reader;
+
+GRANT USAGE ON SCHEMA movies.staging TO ROLE movies_reader;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA movies.staging TO ROLE movies_reader;
+
+GRANT SELECT ON FUTURE TABLES IN DATABASE movies TO ROLE movies_reader;
+
+GRANT ROLE movies_reader TO USER ALEXH1985;
+
+SHOW GRANTS TO ROLE movies_reader;
